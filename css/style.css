@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Mohave:wght@400;700&family=Press+Start+2P&display=swap");
 :root {
-  --main_color: #177381;
+  --main_color: #353535;
 }
 
 body {
@@ -29,10 +29,13 @@ strong {
 }
 
 .wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
+
+
 
 .overlay {
   position: absolute;
@@ -40,33 +43,29 @@ strong {
   height: 350px;
   width: 100%;
 
-  
-  
- background-image: url(https://images.unsplash.com/photo-1532453288672-3a27e9be9efd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80);
-  background-position-y: 40%;
+  background-image: url("https://images.unsplash.com/photo-1462392246754-28dfa2df8e6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80");
+  background-position-y: 35%;
   background-size: cover;
 
   filter: contrast(1.4) sepia(0.2);
 }
 
-.wrapper .__hero{
+.wrapper .__hero {
   position: relative;
-  height: 350px;
-  background-color: rgb(0, 0, 0, 0.397);
-  z-index: 2; 
-
+  background: rgba(0, 0, 0, 0.335);
   top: 0;
   height: 350px;
   width: 100%;
+  z-index: 2;
 }
 
 .wrapper .__hero .intestazione {
-  position: relative;
+  position: absolute;
   padding: 30px;
-  width: 300px;
-  color: wheat;
   height: 100%;
-  font-size: 2rem;
+  color: whitesmoke;
+  font-size: 1.5rem;
+  z-index: 3;
 }
 
 .wrapper .__hero .intestazione h2 {
@@ -87,14 +86,13 @@ strong {
 }
 
 .wrapper__products {
-  margin: 20 40px;
+  margin: 20px 40px;
   display: flex;
   flex-wrap: wrap;
 }
 
 .product {
   display: flex;
-  
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
@@ -104,7 +102,6 @@ strong {
   width: 150px;
 
   border: 2px solid rgb(50, 50, 50);
-
 
   opacity: 0.78;
   cursor: pointer;
