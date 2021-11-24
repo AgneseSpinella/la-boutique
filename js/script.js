@@ -18,8 +18,13 @@ function createProduct(parent, imgUrl, productTitle, textPrice, idProduct) {
       )
     );
     setCartProductsNum();
-    alert(`Prodotto aggiunto al carrello, numero prodotti: ${cartList.length}`);
+    //alert(`Prodotto aggiunto al carrello, numero prodotti: ${cartList.length}`);
     // Nel caso in cui volessimo aggiungere una interazione col LocalStorage
+    modal.classList.remove("disappear")
+    modal.classList.add("display")
+    setTimeout(function(){
+      modal.classList.add("disappear")
+    },1000)
     localStorage.setItem("totCartitems", cartList.length);
   });
 }
@@ -79,6 +84,7 @@ const localStorageTot = localStorage.getItem("totCartitems");
 const cartBtn = document.querySelector(".cartBtn");
 const cartProductsNum = document.querySelector(".cartProductsNum");
 const clearCartBtn = document.querySelector(".clearCart");
+const modal = document.querySelector("#modal")
 
 // Flusso generale
 cartProductsNum.textContent = `Numero prodotti: ${localStorageTot+0} `;
