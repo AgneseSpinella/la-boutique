@@ -80,11 +80,14 @@ let images = [
 "https://images.unsplash.com/photo-1526745925052-dd824d27b9ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
 ]
 
+
+
 const localStorageTot = localStorage.getItem("totCartitems");
 const cartBtn = document.querySelector(".cartBtn");
 const cartProductsNum = document.querySelector(".cartProductsNum");
 const clearCartBtn = document.querySelector(".clearCart");
 const modal = document.querySelector("#modal")
+
 
 // Flusso generale
 cartProductsNum.textContent = `Numero prodotti: ${localStorageTot || 0} `;
@@ -104,4 +107,19 @@ setInterval(function() {
   if (i == images.length) {
     i =  0;
   }
+}, 3000);
+
+// add reviews
+const render = (container, content) => (container.innerHTML = content);
+let reces = ["<b>Patrick</b>: <br /> Da quanto ho scoperto <b>la boutique</b> non riesco più a farne a meno!", 
+"<b>Elisa</b>: <br /> Il miglior e-commerce di sempre. Qualità garantita su tutti i prodotti", 
+"<b>Marcus</b>: <br /> Ottimo rapporto qualità prezzo. Il servizio di assistenza è super efficiente: ho contattato il servizio clienti per effettuare un reso e sono stati estremamente disponibili"]
+const rece = document.querySelector("#rece")
+
+setInterval(function (){
+  render(rece, `<h4> Recensioni </h4> <p>${reces[i]}</p>`);
+  i = i + 1;
+  if (i == reces.length) {
+    i =  0;
+  } ;
 }, 3000);
