@@ -14,5 +14,4 @@ Built with:
 
 ###### Made on November 2021 by Agnese Spinella, student at Edgemony bootcamp as Frontend Developer
 
-
-The site was built using GitHub Pages. [Go to see it!](https://agnesespinella.github.io/la-boutique/) 
+ [Take a look!](https://agnesespinella.github.io/la-boutique/) 
