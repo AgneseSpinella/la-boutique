@@ -87,7 +87,7 @@ const clearCartBtn = document.querySelector(".clearCart");
 const modal = document.querySelector("#modal")
 
 // Flusso generale
-cartProductsNum.textContent = `Numero prodotti: ${localStorageTot+0} `;
+cartProductsNum.textContent = `Numero prodotti: ${localStorageTot || 0} `;
 getProductsList();
 
 clearCartBtn.addEventListener("click", () => {
