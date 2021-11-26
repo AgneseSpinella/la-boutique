@@ -23,16 +23,14 @@ function createProduct(parent, imgUrl, productTitle, textPrice, idProduct) {
       )
     );
     setCartProductsNum();
+
+    modal.classList.remove("disappear")
+    modal.classList.add("display")
+    setTimeout(function(){
+      modal.classList.add("disappear")
+    },1000)
     
-modal.classList.remove("disappear")
-modal.classList.add("display")
-setTimeout(function(){
-  modal.classList.add("disappear")
-},1000)
-
     localStorage.setItem("totCartitems", JSON.stringify(cartList));
-
-    // console.log("LOCAL STORAGE ==>", localStorageValue);
   });
 }
 
