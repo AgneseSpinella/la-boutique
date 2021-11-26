@@ -9,10 +9,20 @@ body {
   border: 0;
 }
 
-h4 {
+.title {
+  display: flex;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  font-family: 'Calligraffitti', cursive;
+  font-size: 1.8em;
+}
+
+.title h4 {
   margin: 10px 0 0;
   padding: 0;
-  color: var(--main_color);
+  color: white;
+  font-size: 0.7em;
 }
 
 img {
@@ -73,64 +83,67 @@ strong {
   margin-bottom: 0;
 }
 
-.cartBanner {
+.gradient  {
   display: flex;
-  justify-content: flex-end;
   background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+  margin-top: 0;
 }
 
 
 
 .cartBanner .clearCart{
-  border: 0;
+
   background: transparent;
   cursor: pointer;
   transition: 0.35s;
 }
 
 .cartBanner .clearCart:hover {
-  transform: scale(1.6);
+  transform: scale(1.2);
 }
 
-.cartBanner .cartProductsNum::before {
+.showCartBtn::before {
   content: "🛒";
   margin-right: 10px;
   font-size: 1.5rem;
 }
 
-.showCartBtn {
+.showCartBtn, .clearCart {
   margin: 20px 0;
   padding: 10px 5px;
   width: 150px;
   align-self: center;
 
-  border: 0;
-  background-color: lightcoral;
+  border: outset;
+  background-color: black;
   color: white;
   font-weight: bold;
   cursor: pointer;
+  opacity: 0.9;
 }
 
-.showCartBtn:hover {
-  background-color: lightpink;
+.cartProductsNum {
+  margin: 20px 0;
+  padding: 10px 5px;
+  width: 150px;
+  align-self: center;
+
+  border: outset black 1px;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  cursor: pointer;
+  opacity: 0.9;
 }
 
-.sideViewAnim {
-  transform: translateX(120%);
+.showCartBtn:hover,
+.clearCart:hover {
+  transform: translateY(-5%);
+  transition: all 400ms ease-in-out;
 }
 
-.wrapper__titles {
-  display: flex;
-  justify-content: center;
-}
 
-.wrapper__titles h2 {
-  font-size: 2rem;
-}
 
-.wrapper__titles h4 {
-  font-size: 0.9rem;
-}
 
 .wrapper__products {
   margin: 20px 40px;
@@ -209,6 +222,7 @@ strong {
 
 #rece h4{
   text-align: center;
+  font-family: 'Calligraffitti', cursive;
 }
 
 #rece p {
@@ -229,11 +243,36 @@ strong {
   font-style: oblique;
 }
 
+/* footer  */
+footer{
+  background: black;
+  padding: 40px;
+  text-align: center;
+  color: cornsilk;
+  font-size: 17px;
+  border: none;
+} 
+
+
+footer a {
+  color: white;
+}
+
+
+footer a:hover {
+  text-decoration: none;
+}
+
+/* animation */
+
 .fade-in-image {
   animation: fadeIn 5s;
 }
 
-
+.sideViewAnim {
+  opacity: 0; 
+  transform: translateY(-20%);
+}
 
 
 @keyframes fadeIn {
