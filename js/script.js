@@ -65,7 +65,7 @@ function renderProducts(listItems) {
 }
 
 function handleShowCartBtn() {
-  // showCartBtn.setAttribute("disabled", true);
+  clearCartBtn.setAttribute("hidden", true);
   wrapper.removeChild(showCartBtn);
   wrapperProducts.classList.add("sideViewAnim");
 

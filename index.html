@@ -1,44 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-    <link rel="stylesheet" href="./css/style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <div class="overlay fade-in-image" id="img"></div>
-      <div class="__hero">
-        <img >
-        <div class="intestazione">
-          <h2>La moda contemporanea</h2>
-          <p>Lo stile non è opinabile</p>
-        </div>
-      </div>
 
-      <div id="modal" class="disappear">
-        <p>Prodotto aggiunto al carrello!</p>
-      </div>
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" href="./css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
+</head>
 
-      <div class="cartBanner">
-        <p class="cartProductsNum"> Carrello vuoto </p>
-        <button class="clearCart">❌</button>
-      </div>
+<body>
 
-      <button class= "showCartBtn">Mostra carrello</button>
-      <div class="wrapper__titles">
-        <h2>La boutique</h2>
-        <h4>Trend e design</h4>
+  <div class="title">
+    <h2>La boutique</h2>
+    <h4>Trend e design</h4>
+  </div>
+
+  <div class="wrapper">
+    <div class="overlay fade-in-image" id="img"></div>
+    <div class="__hero">
+      <img>
+      <div class="intestazione">
+        <h2>La moda contemporanea</h2>
+        <p>Per uno stile intramontabile</p>
       </div>
-      <div class="wrapper__products"></div>
-    </div>
-    
-    <div class="recMenu">   
-      <p id="rece"></p>
     </div>
 
-    <script src="./js/script.js" type="module"></script>
-  </body>
+    <div id="modal" class="disappear">
+      <p>Prodotto aggiunto al carrello!</p>
+    </div>
+
+    <hr class="gradient" size="50" width="100%">
+
+    <div class="cartBanner" >
+      <p class="cartProductsNum"></p>
+    </div>
+
+    <button class="showCartBtn">Vai al carrello</button>
+    <button class="clearCart"> Cancella tutti i prodotti dal carrello </button>
+
+    <div class="wrapper__titles">
+    </div>
+    <div class="wrapper__products"></div>
+  </div>
+
+  <div class="recMenu">
+    <p id="rece"></p>
+  </div>
+
+  <footer>
+
+    Created by <a href="https://www.linkedin.com/in/agnese-spinella-946121223/" target="_blank"> Agnese Spinella</a>
+  </footer>
+
+  <script src="./js/script.js" type="module"></script>
+</body>
+
 </html>
