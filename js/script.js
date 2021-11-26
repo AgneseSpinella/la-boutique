@@ -23,12 +23,13 @@ function createProduct(parent, imgUrl, productTitle, textPrice, idProduct) {
       )
     );
     setCartProductsNum();
-    alert(`Prodotto aggiunto al carrello, numero prodotti: ${cartList.length}`);
-    // Nel caso in cui volessimo aggiungere una interazione col LocalStorage
-
+    modal.classList.remove("disappear")
+    modal.classList.add("display")
+    setTimeout(function(){
+      modal.classList.add("disappear")
+    },1000)
+    
     localStorage.setItem("totCartitems", JSON.stringify(cartList));
-
-    // console.log("LOCAL STORAGE ==>", localStorageValue);
   });
 }
 
