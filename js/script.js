@@ -12,20 +12,23 @@ function createProduct(parent, imgUrl, productTitle, textPrice, idProduct) {
   parent.appendChild(product);
 
   product.addEventListener("click", (e) => {
+    const localStorageValue = localStorage.getItem("totCartitems");
+    if (localStorageValue) {
+      cartList = JSON.parse(localStorageValue);
+    }
+
     cartList.push(
       productsList.find(
         (product) => parseInt(e.currentTarget.id) === product.id
       )
     );
     setCartProductsNum();
-    //alert(`Prodotto aggiunto al carrello, numero prodotti: ${cartList.length}`);
+    alert(`Prodotto aggiunto al carrello, numero prodotti: ${cartList.length}`);
     // Nel caso in cui volessimo aggiungere una interazione col LocalStorage
-    modal.classList.remove("disappear")
-    modal.classList.add("display")
-    setTimeout(function(){
-      modal.classList.add("disappear")
-    },1000)
-    localStorage.setItem("totCartitems", cartList.length);
+
+    localStorage.setItem("totCartitems", JSON.stringify(cartList));
+
+    // console.log("LOCAL STORAGE ==>", localStorageValue);
   });
 }
 
@@ -47,7 +50,6 @@ function createText(parent, productTitle, textPrice) {
   parent.append(title, price);
 }
 
-
 function renderProducts(listItems) {
   listItems.map((product) => {
     createProduct(
@@ -66,6 +68,12 @@ const getProductsList = async () => {
   const data = await res.json();
   productsList = data;
 
+  // Nella eventualità di aggiungere una quantità per prodotto
+  // productsList = data.map((product) => {
+  //   product.quantity = 0;
+  //   return product;
+  // });
+
   return renderProducts(data);
 };
 
@@ -74,23 +82,17 @@ const wrapperProducts = document.querySelector(".wrapper__products");
 
 // Parte inerente alla logica del carrello
 let cartList = [];
-let images = [
-"https://images.unsplash.com/photo-1462392246754-28dfa2df8e6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-"https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
-"https://images.unsplash.com/photo-1526745925052-dd824d27b9ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
-]
-
-
 
 const localStorageTot = localStorage.getItem("totCartitems");
 const cartBtn = document.querySelector(".cartBtn");
 const cartProductsNum = document.querySelector(".cartProductsNum");
 const clearCartBtn = document.querySelector(".clearCart");
-const modal = document.querySelector("#modal")
-
 
 // Flusso generale
-cartProductsNum.textContent = `Numero prodotti: ${localStorageTot || 0} `;
+const parsedTotCardItemsLen =
+  JSON.parse(localStorage.getItem("totCartitems"))?.length || 0;
+
+cartProductsNum.textContent = `Numero prodotti: ${parsedTotCardItemsLen || 0}`;
 getProductsList();
 
 clearCartBtn.addEventListener("click", () => {
@@ -99,6 +101,11 @@ clearCartBtn.addEventListener("click", () => {
 });
 
 //change hero image 
+let images = [
+"https://images.unsplash.com/photo-1462392246754-28dfa2df8e6b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+"https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80",
+"https://images.unsplash.com/photo-1526745925052-dd824d27b9ab?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80"
+]
 let  i = 0;
 let imageHead = document.getElementById("img")
 setInterval(function() {
